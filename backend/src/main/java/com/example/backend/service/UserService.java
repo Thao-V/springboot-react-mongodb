@@ -33,9 +33,16 @@ public class UserService implements UserDetailsService{
   }
   
   public User registerUser(String email, String password){
-    String hashedPassword = passwordEncoder.encode(password);
-    User user = new User(email, hashedPassword);
-    return userRepository.save(user);
+    try {
+      String hashedPassword = passwordEncoder.encode(password);
+      System.out.println("thao " + hashedPassword);
+      User user = new User(email, hashedPassword);
+      return userRepository.save(user);  
+    } catch (Exception e) {
+      System.err.println("Error registering user: " + e.getMessage());
+      return null;
+    }
+    
   }
   public List<User> getAllUsers(){
     return userRepository.findAll();

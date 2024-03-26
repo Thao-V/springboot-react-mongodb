@@ -18,6 +18,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import static com.example.backend.config.GlobalConstants.HEALTH_CHECKING_ENDPOINT;
 import static com.example.backend.config.GlobalConstants.LOGIN_ENDPOINT;
 import static com.example.backend.config.GlobalConstants.REGISTER_ENDPOINT;
 
@@ -31,11 +32,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
   }
 
   @Override
-  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+  protected void doFilterInternal(@SuppressWarnings("null") HttpServletRequest request, @SuppressWarnings("null") HttpServletResponse response, @SuppressWarnings("null") FilterChain filterChain)
       throws ServletException, IOException {
     try {
       String requestURI = request.getRequestURI();
-      if (!requestURI.equals(LOGIN_ENDPOINT) && !requestURI.equals(REGISTER_ENDPOINT)) {
+      if (!requestURI.equals(LOGIN_ENDPOINT) && !requestURI.equals(REGISTER_ENDPOINT) && !requestURI.equals(HEALTH_CHECKING_ENDPOINT)) {
         final String authorizationHeader = request.getHeader("Authorization");
 
         String username = null;
