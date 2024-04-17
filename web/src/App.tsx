@@ -31,7 +31,7 @@ function App() {
   }
   const onHello = async () => {
     try {
-      const token = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRoYW92dUBtaXUuZWR1Iiwicm9sZSI6ImRldiIsImlhdCI6MTcwOTMwNDYwOSwiZXhwIjoxNzA5MzQwNjA5fQ.KwJkHKAgzWl0JabY_jRnzw1o7LwK55ew97XFViWStrM";
+      const token = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRoYW92dUBtaXUuZWR1Iiwicm9sZSI6ImRldiIsImlhdCI6MTcxMTU1NTg5MCwiZXhwIjoxNzExNTkxODkwfQ.HagmGRUbpStkXhvjvgMgqPhO94p9uqFCtpEzlT7P4X0";
       const endpoint = "http://localhost:6001/api/users/hello";
       const response = await axios.get(endpoint, {
         headers:{

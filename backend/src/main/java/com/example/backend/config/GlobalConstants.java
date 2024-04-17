@@ -6,10 +6,8 @@ public final class GlobalConstants {
   }
 
   // API Endpoints
-  public static final String LOGIN_ENDPOINT = "/api/users/login";
-  public static final String REGISTER_ENDPOINT = "/api/users/register";
-
-  public static final String HEALTH_CHECKING_ENDPOINT = "/actuator/health";
+  public static final String USERS_ENDPOINT = "/api/users/**";
+  public static final String HEALTH_CHECKING_ENDPOINT = "/actuator/**";
 
   // JWT Constants
   public static final String JWT_SECRET_KEY = "your_secret_key";

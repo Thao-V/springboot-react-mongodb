@@ -2,9 +2,12 @@ package com.example.backend.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.backend.dto.UserRequest;
 import com.example.backend.helper.JwtUtil;
 import com.example.backend.model.User;
 import com.example.backend.service.UserService;
+
+import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,10 +36,10 @@ public class UserController {
     return ResponseEntity.ok(registeredUser);
   }
   @PostMapping("/login")
-  public String login(@RequestBody User user) {
+  public String login(@RequestBody @Valid UserRequest user) {
     // Authentication
     Authentication auth = authenticationManager.authenticate(
-      new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword())
+      new UsernamePasswordAuthenticationToken(user.email(), user.password())
     );
     //Keep the auth for entire application
     SecurityContextHolder.getContext().setAuthentication(auth);
